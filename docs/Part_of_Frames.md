@@ -103,8 +103,8 @@ ros2 launch tracker_launcher tracker.launch.py mcu:=real port:=/dev/ttyUSB0
 `map` 是全局惯性系，描述整个场景。
 
 - 原点在螺旋中心，也就是坐标原点 $(0,0)$；
-- $x$ 轴向右，$y$ 轴向上；
-- 所有运动都发生在水平面内，$z$ 恒为 0。
+- $x$ 轴向右， $y$ 轴向上；
+- 所有运动都发生在水平面内， $z$ 恒为 0。
 
 目标的真实位置、EKF 估计出的 $(p_x, p_y)$ 都在 `map` 下表达。
 
