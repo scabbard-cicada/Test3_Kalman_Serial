@@ -37,7 +37,7 @@ $F$ 和 $H$ 都是常数矩阵。整条推导只在矩阵的加法和乘法里�
 $$
 z_k = \begin{bmatrix} r \\ \theta \end{bmatrix}, \quad
 r = \sqrt{(p_x - s_x)^2 + (p_y - s_y)^2}, \quad
-\theta = \operatorname{atan2}(p_y - s_y,\ p_x - s_x)
+\theta = \mathrm{atan2}(p_y - s_y,\ p_x - s_x)
 $$
 
 这里有开方和 `atan2`，它们都不是状态的线性函数。也就是说，观测和状态之间不存在一个常数矩阵 $H$ 能满足 $z = Hx$。这正是 KF 用不了、需要 EKF 的地方。
@@ -150,7 +150,7 @@ $$
 本题里 $h$ 就是由位置算距离和方位的那个式子：
 
 $$
-h(x) = \begin{bmatrix} \sqrt{(p_x - s_x)^2 + (p_y - s_y)^2} \\ \operatorname{atan2}(p_y - s_y,\ p_x - s_x) \end{bmatrix}
+h(x) = \begin{bmatrix} \sqrt{(p_x - s_x)^2 + (p_y - s_y)^2} \\ \mathrm{atan2}(p_y - s_y,\ p_x - s_x) \end{bmatrix}
 $$
 
 $H$ 不再是常数，而是在当前先验估计 $\hat{x}_k^-$ 处现算的雅可比：
@@ -241,7 +241,7 @@ G = \frac{\partial(p_x, p_y)}{\partial(r, \theta)}
   = \begin{bmatrix} \cos\theta & -r\sin\theta \\ \sin\theta & r\cos\theta \end{bmatrix}
 $$
 
-把观测协方差 $R = \operatorname{diag}(\sigma_r^2, \sigma_\theta^2)$ 用这个雅可比传播一次：
+把观测协方差 $R = \mathrm{diag}(\sigma_r^2, \sigma_\theta^2)$ 用这个雅可比传播一次：
 
 $$
 P_{\text{pos}} = G R G^\mathsf{T}
@@ -272,7 +272,7 @@ $$
 处理办法是把残差的方位分量 wrap 到 $[-\pi, \pi]$：
 
 $$
-\nu_\theta \leftarrow \nu_\theta - 2\pi \cdot \operatorname{round}\!\left(\frac{\nu_\theta}{2\pi}\right)
+\nu_\theta \leftarrow \nu_\theta - 2\pi \cdot \mathrm{round}\!\left(\frac{\nu_\theta}{2\pi}\right)
 $$
 
 `std::remainder` 做的就是这件事，把 $6.26$ 变回 $-0.02$，恢复成真实的小残差。注意只有残差的方位分量需要这样处理：状态里的位置、速度、加速度都是普通数值，不需要 wrap。

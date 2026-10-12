@@ -149,7 +149,7 @@ flowchart LR
 
 $$
 r = \sqrt{(p_x - s_x)^2 + (p_y - s_y)^2}, \qquad
-\theta = \operatorname{atan2}(p_y - s_y,\ p_x - s_x)
+\theta = \mathrm{atan2}(p_y - s_y,\ p_x - s_x)
 $$
 
 这里的 $\theta$ 是世界系下的方位角，衡量的是「站点到目标」这条连线相对世界 $x$ 轴的方向，取值范围 wrap 到 $(-\pi, \pi]$。
@@ -159,8 +159,8 @@ $$
 云台指令里的 `yaw` 不是世界方位角，而是相对云台零位的角度。因为零位朝 $-x$，也就是朝 `gimbal_heading = π`，两者的关系是：
 
 $$
-\text{gimbal\_yaw} = \operatorname{wrap}\big(\theta - \text{gimbal\_heading}\big)
-        = \operatorname{wrap}\big(\operatorname{atan2}(p_y - s_y,\ p_x - s_x) - \pi\big)
+\text{gimbal\_yaw} = \mathrm{wrap}\big(\theta - \text{gimbal\_heading}\big)
+        = \mathrm{wrap}\big(\mathrm{atan2}(p_y - s_y,\ p_x - s_x) - \pi\big)
 $$
 
 约定：
