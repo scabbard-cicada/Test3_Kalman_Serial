@@ -1,0 +1,4 @@
+# 覆盖参数文件：叠在 target_tracker 的 params.yaml 之后
+# 每个组件都会加载 [params.yaml, override.yaml]，后者覆盖前者
+# 用法：ros2 launch tracker_launcher tracker.launch.py override_params:=/path/to/your.yaml
+{}

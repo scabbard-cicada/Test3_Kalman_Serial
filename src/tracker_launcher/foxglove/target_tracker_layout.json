@@ -1,0 +1,173 @@
+{
+  "configById": {
+    "3D!trajectory": {
+      "cameraState": {
+        "distance": 30,
+        "perspective": false,
+        "phi": 0,
+        "thetaOffset": 0,
+        "target": [0, 0, 0],
+        "targetOffset": [0, 0, 0],
+        "targetOrientation": [0, 0, 0, 1],
+        "fovy": 45,
+        "near": 0.01,
+        "far": 5000
+      },
+      "followMode": "follow-none",
+      "followTf": "map",
+      "scene": {},
+      "transforms": {},
+      "topics": {
+        "/viz/raw_path": { "visible": true },
+        "/viz/filtered_path": { "visible": true },
+        "/viz/gimbal": { "visible": true }
+      },
+      "layers": {},
+      "publish": {
+        "type": "point",
+        "poseTopic": "/move_base_simple/goal",
+        "pointTopic": "/clicked_point",
+        "poseEstimateTopic": "/initialpose",
+        "poseEstimateXDeviation": 0.5,
+        "poseEstimateYDeviation": 0.5,
+        "poseEstimateThetaDeviation": 0.26179939
+      }
+    },
+    "Plot!nis": {
+      "paths": [
+        {
+          "value": "/target/nis.data",
+          "enabled": true,
+          "timestampMethod": "receiveTime",
+          "label": "NIS",
+          "color": "#4e98e2",
+          "lineSize": 1
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "minYValue": 0,
+      "maxYValue": 40,
+      "followingViewWidth": 10
+    },
+    "Plot!gimbal": {
+      "paths": [
+        {
+          "value": "/gimbal/cmd.yaw",
+          "enabled": true,
+          "timestampMethod": "receiveTime",
+          "label": "cmd yaw (PC)",
+          "color": "#e2c14e",
+          "lineSize": 1
+        },
+        {
+          "value": "/gimbal/feedback.yaw",
+          "enabled": true,
+          "timestampMethod": "receiveTime",
+          "label": "feedback yaw (MCU)",
+          "color": "#3ce2e2",
+          "lineSize": 1
+        },
+        {
+          "value": "/gimbal/feedback.yaw_ref",
+          "enabled": true,
+          "timestampMethod": "receiveTime",
+          "label": "yaw_ref applied (MCU)",
+          "color": "#b9e24e",
+          "lineSize": 1
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 10
+    },
+    "Plot!link": {
+      "paths": [
+        {
+          "value": "/serial/status.rtt_ms_mean",
+          "enabled": true,
+          "timestampMethod": "receiveTime",
+          "label": "RTT mean (ms)",
+          "color": "#e24e98",
+          "lineSize": 1
+        },
+        {
+          "value": "/serial/status.rx_rate_hz",
+          "enabled": true,
+          "timestampMethod": "receiveTime",
+          "label": "rx rate (Hz)",
+          "color": "#4ee298",
+          "lineSize": 1
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": true,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "minYValue": 0,
+      "maxYValue": 120,
+      "followingViewWidth": 20
+    },
+    "RawMessages!filtered": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "/target/filtered.point"
+    },
+    "RawMessages!feedback": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "/gimbal/feedback"
+    }
+  },
+  "globalVariables": {},
+  "userNodes": {},
+  "playbackConfig": {
+    "speed": 1
+  },
+  "layout": {
+    "first": "3D!trajectory",
+    "second": {
+      "first": "Plot!nis",
+      "second": {
+        "first": "Plot!gimbal",
+        "second": {
+          "first": "Plot!link",
+          "second": {
+            "first": "RawMessages!filtered",
+            "second": "RawMessages!feedback",
+            "direction": "row",
+            "splitPercentage": 50
+          },
+          "direction": "column",
+          "splitPercentage": 50
+        },
+        "direction": "column",
+        "splitPercentage": 40
+      },
+      "direction": "column",
+      "splitPercentage": 66
+    },
+    "direction": "row",
+    "splitPercentage": 60
+  }
+}

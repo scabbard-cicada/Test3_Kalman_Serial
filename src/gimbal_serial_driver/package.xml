@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>gimbal_serial_driver</name>
+  <version>2.0.0</version>
+  <description>
+    上下位机串口通信（C1/C2 协议，Boost.Asio，自动重连），以及用伪终端模拟下位机的 fake_mcu
+  </description>
+  <maintainer email="exam@example.com">Exam Author</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>rclcpp_components</depend>
+  <depend>std_srvs</depend>
+  <depend>interfaces</depend>
+  <depend>boost</depend>
+
+  <test_depend>ament_cmake_gtest</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>tracker_launcher</name>
+  <version>1.0.0</version>
+  <description>顶层启动编排：把观测回放、核心跟踪、可视化装进一个容器，并拉起串口和 Foxglove</description>
+  <maintainer email="cicada@example.com">cicada</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>rclcpp_components</exec_depend>
+  <exec_depend>ros2launch</exec_depend>
+  <exec_depend>foxglove_bridge</exec_depend>
+  <exec_depend>virtual_locator</exec_depend>
+  <exec_depend>target_tracker</exec_depend>
+  <exec_depend>target_tracker_visualizer</exec_depend>
+  <exec_depend>interfaces</exec_depend>
+  <exec_depend>gimbal_serial_driver</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

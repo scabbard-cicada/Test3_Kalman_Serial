@@ -1,0 +1,12 @@
+# virtual_locator —— 观测回放参数
+virtual_locator:
+  ros__parameters:
+    # 极坐标观测数据源（launch 自动填成绝对路径，一般不用改）
+    json_path: ""
+    # 播完是否循环。循环时目标跳回起点，跟踪器因断流超时自动重置
+    loop: true
+    # 周期间停顿（s）：留给电机归零和滤波器重置
+    loop_gap: 4.0
+    # 启动后等多久开始回放（s）：给串口驱动和下位机留出连接、解锁的时间
+    start_delay: 2.0
+    frame_id: "map"

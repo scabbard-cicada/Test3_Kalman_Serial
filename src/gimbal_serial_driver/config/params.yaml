@@ -1,0 +1,21 @@
+/**:
+  ros__parameters:
+    # 串口设备。
+    #   真 C 板：USB-TTL 一般是 /dev/ttyUSB0（CH340 / CP2102），建议用 udev 规则固定成 /dev/gimbal_mcu
+    #           或者用 /dev/serial/by-id/... 的稳定路径，避免插拔后编号变化
+    #   软件下位机：fake_mcu 创建的伪终端 /tmp/gimbal_fake_mcu（launch 里 mcu:=fake 时自动改）
+    device_name: /dev/ttyUSB0
+    baud_rate: 115200                 # 与固件 USART6 一致，8N1
+
+    # 自动重连（Boost.Asio）：打开失败或读写出错后按指数退避重试
+    reconnect_initial_delay_ms: 5
+    reconnect_max_delay_ms: 500
+    reconnect_backoff_multiplier: 1.5
+    read_buffer_size: 1024
+
+    # IO 线程实时优先级（SCHED_RR）。需要 rtprio 权限，失败只告警不影响运行
+    io_thread_realtime: false
+    io_thread_priority: 20
+
+    # 把每一帧收发的十六进制打印出来，联调接线时用；正常运行关掉，否则 200 行/秒刷屏
+    log_frames: false

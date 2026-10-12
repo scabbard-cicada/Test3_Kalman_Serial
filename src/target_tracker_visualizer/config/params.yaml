@@ -1,0 +1,31 @@
+# target_tracker_visualizer —— 可视化参数
+visualizer_node:
+  ros__parameters:
+    # 坐标系：map 是世界系（螺旋中心为原点）；station 固定在站点 S；
+    # gimbal 跟随电机实际朝向，挂在 station 下
+    map_frame: "map"
+    station_frame: "station"
+    gimbal_frame: "gimbal"
+
+    publish_rate: 15.0
+    trail_length: 6000
+
+    # 观测时间戳跳变超过该时长视为新周期，清空轨迹（s），避免周期间连线
+    clear_gap: 1.5
+
+    # 站点位置与云台零位朝向（与 tracker_node、下位机保持一致）
+    station_x: 10.0
+    station_y: 0.0
+    gimbal_heading: 3.141592653589793
+
+    ray_length: 15.0
+    yaw_min_deg: -35.0
+    yaw_max_deg: 35.0
+
+    # 轨迹线宽（m）
+    raw_width: 0.03          # 红色原始观测连线，细
+    filtered_width: 0.05     # 绿色滤波轨迹
+
+    draw_raw: true
+    draw_filtered: true
+    draw_gimbal: true
