@@ -1,6 +1,6 @@
 <h1 align="center">Test3_Kalman_Serial</h1>
 
-RoboMaster 自瞄笔试题：**极坐标观测的 EKF 目标跟踪 + 云台串口闭环**。
+RoboMaster 自瞄笔试题：极坐标观测的 EKF 目标跟踪 + 云台串口闭环。
 
 - 上位机（ROS 2）：从固定站点测得的极坐标 `(r, θ)`，用扩展卡尔曼滤波（EKF）估计目标
   状态，预测提前量，算出云台 yaw 角，经串口发给下位机。
@@ -8,7 +8,7 @@ RoboMaster 自瞄笔试题：**极坐标观测的 EKF 目标跟踪 + 云台串�
   并把电机实际角度回传。
 - 没有硬件时，`fake_mcu` 用伪终端模拟下位机，跑的是和固件相同的控制代码。
 
-题目和提交要求见 [`QUESTION.md`](QUESTION.md)。**开始之前先读 `docs/` 下的材料，顺序见 QUESTION。**
+题目和提交要求见 [`QUESTION.md`](QUESTION.md)。开始之前先读 `docs/` 下的材料，顺序见 QUESTION。
 
 ## 目录结构
 
